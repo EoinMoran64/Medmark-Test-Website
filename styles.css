@@ -123,8 +123,8 @@ p { color: var(--muted); line-height: 1.65; }
 .hero-lede { color: rgba(255,255,255,.96); font-size: clamp(1.05rem, 1.7vw, 1.35rem); margin-left: auto; margin-right: auto; max-width: 1220px; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 44px; }
 .segment { background: rgba(255,255,255,.92); border: 1px solid rgba(255,255,255,.78); border-radius: 999px; box-shadow: var(--shadow); display: inline-flex; gap: 4px; padding: 6px; position: absolute; right: clamp(20px, 5vw, 68px); top: 120px; }
-.segment span { border-radius: 999px; color: var(--muted); font-weight: 850; padding: 10px 18px; }
-.segment span:first-child { background: var(--teal); color: var(--white); }
+.segment a { border-radius: 999px; color: var(--muted); font-weight: 850; padding: 10px 18px; }
+.segment a.is-active { background: var(--teal); color: var(--white); }
 
 .hurry-button {
   align-items: center;

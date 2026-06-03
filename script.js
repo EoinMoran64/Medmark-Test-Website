@@ -122,11 +122,26 @@ chatClose?.addEventListener("click", closeChat);
 chatEntry?.addEventListener("submit", event => {
   event.preventDefault();
   const input = chatEntry.querySelector("input");
+  const message = input?.value.trim();
+  const subject = encodeURIComponent("Website chat enquiry");
+  const body = encodeURIComponent(message ? `Chat message:\n\n${message}` : "Website chat enquiry");
+  window.location.href = `mailto:dublin@medmark.ie?subject=${subject}&body=${body}`;
   if (input) input.value = "";
 });
 
 document.querySelector(".contact-form")?.addEventListener("submit", event => {
   event.preventDefault();
+  const form = event.currentTarget;
+  const data = new FormData(form);
+  const lines = [
+    `Name: ${data.get("name") || ""}`,
+    `Email: ${data.get("email") || ""}`,
+    `Company: ${data.get("company") || ""}`,
+    `Reason: ${data.get("reason") || ""}`,
+    `Preferred contact method: ${data.get("method") || ""}`,
+    `Best time to contact: ${data.get("time") || ""}`
+  ];
+  window.location.href = `mailto:dublin@medmark.ie?subject=${encodeURIComponent("Website callback request")}&body=${encodeURIComponent(lines.join("\n"))}`;
 });
 
 const clinicMapEl = document.querySelector("#clinic-map");

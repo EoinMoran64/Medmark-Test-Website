@@ -1,4 +1,14 @@
 {
   "cleanUrls": true,
-  "trailingSlash": true
+  "trailingSlash": true,
+  "rewrites": [
+    { "source": "/forms", "destination": "/forms/index.html" },
+    { "source": "/forms/", "destination": "/forms/index.html" },
+    { "source": "/careers", "destination": "/careers/index.html" },
+    { "source": "/careers/", "destination": "/careers/index.html" },
+    { "source": "/policy", "destination": "/policy/index.html" },
+    { "source": "/policy/", "destination": "/policy/index.html" },
+    { "source": "/terms", "destination": "/terms/index.html" },
+    { "source": "/terms/", "destination": "/terms/index.html" }
+  ]
 }
