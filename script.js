@@ -135,57 +135,48 @@ if (clinicMapEl && window.L) {
   const clinics = [
     {
       name: "Medmark - Baggot Street",
-      address: "69 Baggot Street Lower, Dublin 2, D02 HW52",
+      address: "69 Lower Baggot Street, Baggot Street Bridge, Dublin 2, D02 HW52",
       coords: [53.3349186, -6.2458024],
-      maps: "https://www.openstreetmap.org/?mlat=53.3349186&mlon=-6.2458024#map=17/53.3349186/-6.2458024"
     },
     {
       name: "Medmark - Fleming Court",
-      address: "Fleming Place, Fleming Court, Dublin 4, D04 N4X9",
+      address: "Ground Floor, Fleming Court, Fleming's Place, Dublin 4, D04 N4X9",
       coords: [53.3328870, -6.2457500],
-      maps: "https://www.openstreetmap.org/?mlat=53.3328870&mlon=-6.2457500#map=17/53.3328870/-6.2457500"
     },
     {
       name: "Medmark - Dublin Airport",
-      address: "Skybridge House, Corballis Rd S, Swords, Co. Dublin, K67 P6K2",
+      address: "Skybridge House, Corballis Road North, Dublin Airport, Swords, Co. Dublin, K67 P6K2",
       coords: [53.4284822, -6.2350387],
-      maps: "https://www.openstreetmap.org/?mlat=53.4284822&mlon=-6.2350387#map=16/53.4284822/-6.2350387"
     },
     {
       name: "Medmark - Sligo",
-      address: "4 The Mall, Rathquarter, Sligo, F91 HT7C",
+      address: "4 The Mall, Sligo, F91 HT7C",
       coords: [54.2727005, -8.4711371],
-      maps: "https://www.openstreetmap.org/?mlat=54.2727005&mlon=-8.4711371#map=17/54.2727005/-8.4711371"
     },
     {
       name: "Medmark - Limerick",
-      address: "6 Steamboat Quay, Mountkennet, Limerick",
+      address: "Stanford Clinic, 6 Steamboat Quay, Limerick, V94 Y7YH",
       coords: [52.6605371, -8.6362606],
-      maps: "https://www.openstreetmap.org/?mlat=52.6605371&mlon=-8.6362606#map=17/52.6605371/-8.6362606"
     },
     {
       name: "Medmark - Galway",
-      address: "Unit 7A, Second Floor, Ballybrit, Galway, H91 621D",
+      address: "Unit 7A, Second Floor, Briarhill Business Park, Ballybrit, Galway, H91 621D",
       coords: [53.2939620, -8.9896500],
-      maps: "https://www.openstreetmap.org/?mlat=53.2939620&mlon=-8.9896500#map=16/53.2939620/-8.9896500"
     },
     {
       name: "Medmark - Waterford",
-      address: "Cork Rd, Butlerstown North, Waterford, X91 DH9W",
+      address: "Suite no. 8, Whitfield Clinic, Butlerstown North, Cork Road, Co. Waterford, X91 DH9W",
       coords: [52.2401284, -7.1720339],
-      maps: "https://www.openstreetmap.org/?mlat=52.2401284&mlon=-7.1720339#map=16/52.2401284/-7.1720339"
     },
     {
       name: "Medmark - Cork",
-      address: "Penrose Wharf, 8 Penrose Quay, Victorian Quarter, Cork, T23 DC90",
+      address: "8 Penrose Wharf, Cork, T23 DC90",
       coords: [51.9007580, -8.4637967],
-      maps: "https://www.openstreetmap.org/?mlat=51.9007580&mlon=-8.4637967#map=17/51.9007580/-8.4637967"
     },
     {
       name: "Medmark - Belfast (Blackwell Associates)",
-      address: "Strand House, 102 Holywood Rd, Belfast BT4 1NU, United Kingdom",
+      address: "Strand House, 102 Holywood Road, Belfast, BT4 1NU",
       coords: [54.5993323, -5.8833414],
-      maps: "https://www.openstreetmap.org/?mlat=54.5993323&mlon=-5.8833414#map=16/54.5993323/-5.8833414"
     }
   ];
 
@@ -217,7 +208,7 @@ if (clinicMapEl && window.L) {
     bounds.push(clinic.coords);
     L.marker(clinic.coords, { icon: markerIcon })
       .addTo(map)
-      .bindPopup(`<h3>${clinic.name}</h3><p>${clinic.address}</p><a href="${clinic.maps}" target="_blank" rel="noreferrer">View location</a>`);
+      .bindPopup(`<h3>${clinic.name}</h3><p>${clinic.address}</p>`);
   });
 
   const irelandBounds = [[51.25, -10.8], [55.45, -5.25]];
