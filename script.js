@@ -220,21 +220,44 @@ if (clinicMapEl && window.L) {
 
   const bounds = [];
   const markersByName = new Map();
+  const centralDublinClinics = new Set(["Medmark - Baggot Street", "Medmark - Fleming Court"]);
+
+  function focusClinic(clinicName, shouldScroll = false) {
+    const marker = markersByName.get(clinicName);
+    if (!marker) return;
+
+    if (shouldScroll) {
+      clinicMapEl.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+
+    if (centralDublinClinics.has(clinicName)) {
+      const dublinMarkers = [...centralDublinClinics]
+        .map(name => markersByName.get(name))
+        .filter(Boolean);
+      const dublinBounds = L.latLngBounds(dublinMarkers.map(dublinMarker => dublinMarker.getLatLng()));
+      map.fitBounds(dublinBounds, { padding: [72, 72], maxZoom: 16, animate: true });
+      setTimeout(() => marker.openPopup(), shouldScroll ? 520 : 320);
+      return;
+    }
+
+    map.setView(marker.getLatLng(), 16, { animate: true });
+    setTimeout(() => marker.openPopup(), shouldScroll ? 520 : 320);
+  }
+
   clinics.forEach(clinic => {
     bounds.push(clinic.coords);
-    const marker = L.marker(clinic.coords, { icon: markerIcon })
+    const marker = L.marker(clinic.coords, { icon: markerIcon, title: clinic.name })
       .addTo(map)
       .bindPopup(`<h3>${clinic.name}</h3><p>${clinic.address}</p>`);
+    marker.on("click", () => {
+      focusClinic(clinic.name);
+    });
     markersByName.set(clinic.name, marker);
   });
 
   document.querySelectorAll("[data-clinic]").forEach(button => {
     button.addEventListener("click", () => {
-      const marker = markersByName.get(button.getAttribute("data-clinic"));
-      if (!marker) return;
-      clinicMapEl.scrollIntoView({ behavior: "smooth", block: "center" });
-      map.setView(marker.getLatLng(), 15, { animate: true });
-      setTimeout(() => marker.openPopup(), 360);
+      focusClinic(button.getAttribute("data-clinic"), true);
     });
   });
 
