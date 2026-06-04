@@ -145,6 +145,7 @@ document.querySelector(".contact-form")?.addEventListener("submit", event => {
 });
 
 const clinicMapEl = document.querySelector("#clinic-map");
+const mapExitButton = document.querySelector("[data-map-exit]");
 
 if (clinicMapEl && window.L) {
   const clinics = [
@@ -161,7 +162,7 @@ if (clinicMapEl && window.L) {
     {
       name: "Medmark - Dublin Airport",
       address: "Skybridge House, Corballis Road North, Dublin Airport, Swords, Co. Dublin, K67 P6K2",
-      coords: [53.4284822, -6.2350387],
+      coords: [53.429655, -6.244031],
     },
     {
       name: "Medmark - Sligo",
@@ -186,7 +187,7 @@ if (clinicMapEl && window.L) {
     {
       name: "Medmark - Cork",
       address: "8 Penrose Wharf, Cork, T23 DC90",
-      coords: [51.9007580, -8.4637967],
+      coords: [51.9007946, -8.4634200],
     },
     {
       name: "Medmark - Belfast (Blackwell Associates)",
@@ -209,6 +210,8 @@ if (clinicMapEl && window.L) {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
     noWrap: true
   }).addTo(map);
+
+  const irelandBounds = [[51.25, -10.8], [55.45, -5.25]];
 
   const markerIcon = L.divIcon({
     className: "",
@@ -261,7 +264,14 @@ if (clinicMapEl && window.L) {
     });
   });
 
-  const irelandBounds = [[51.25, -10.8], [55.45, -5.25]];
+  mapExitButton?.addEventListener("click", () => {
+    map.closePopup();
+    map.fitBounds(irelandBounds, { padding: [14, 14], animate: true });
+    mapExitButton.blur();
+    clinicMapEl.closest(".clinic-section")?.querySelector(".clinic-grid")
+      ?.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+
   map.fitBounds(irelandBounds, { padding: [14, 14] });
   setTimeout(() => {
     map.invalidateSize();
