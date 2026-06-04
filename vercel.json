@@ -1,14 +1,14 @@
 {
-  "cleanUrls": true,
-  "trailingSlash": true,
+  "cleanUrls": false,
+  "trailingSlash": false,
   "rewrites": [
-    { "source": "/forms", "destination": "/forms/index.html" },
-    { "source": "/forms/", "destination": "/forms/index.html" },
-    { "source": "/careers", "destination": "/careers/index.html" },
-    { "source": "/careers/", "destination": "/careers/index.html" },
-    { "source": "/policy", "destination": "/policy/index.html" },
-    { "source": "/policy/", "destination": "/policy/index.html" },
-    { "source": "/terms", "destination": "/terms/index.html" },
-    { "source": "/terms/", "destination": "/terms/index.html" }
+    { "source": "/forms", "destination": "/forms.html" },
+    { "source": "/forms/", "destination": "/forms.html" },
+    { "source": "/careers", "destination": "/careers.html" },
+    { "source": "/careers/", "destination": "/careers.html" },
+    { "source": "/policy", "destination": "/policy.html" },
+    { "source": "/policy/", "destination": "/policy.html" },
+    { "source": "/terms", "destination": "/terms.html" },
+    { "source": "/terms/", "destination": "/terms.html" }
   ]
 }

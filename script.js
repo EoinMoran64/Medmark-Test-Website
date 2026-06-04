@@ -1,4 +1,4 @@
-const services = {
+﻿const services = {
   preemployment: {
     title: "Pre-Employment Medicals",
     summary: "Efficient pre-employment assessments to confirm fitness for role, identify relevant risks and support consistent recruitment decisions.",
@@ -233,3 +233,4 @@ if (clinicMapEl && window.L) {
     map.fitBounds(irelandBounds, { padding: [14, 14] });
   }, 200);
 }
+

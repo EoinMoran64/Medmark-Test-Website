@@ -1,4 +1,4 @@
-:root {
+﻿:root {
   --ink: #101a23;
   --muted: #5e6d78;
   --line: #dbe6eb;
@@ -472,3 +472,4 @@ textarea { min-height: 110px; padding-top: 12px; resize: vertical; }
   .map-panel, .leaflet-map { min-height: 380px; }
   section { padding-bottom: 58px; padding-top: 58px; }
 }
+
