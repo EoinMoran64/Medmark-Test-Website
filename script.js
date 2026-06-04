@@ -219,11 +219,23 @@ if (clinicMapEl && window.L) {
   });
 
   const bounds = [];
+  const markersByName = new Map();
   clinics.forEach(clinic => {
     bounds.push(clinic.coords);
-    L.marker(clinic.coords, { icon: markerIcon })
+    const marker = L.marker(clinic.coords, { icon: markerIcon })
       .addTo(map)
       .bindPopup(`<h3>${clinic.name}</h3><p>${clinic.address}</p>`);
+    markersByName.set(clinic.name, marker);
+  });
+
+  document.querySelectorAll("[data-clinic]").forEach(button => {
+    button.addEventListener("click", () => {
+      const marker = markersByName.get(button.getAttribute("data-clinic"));
+      if (!marker) return;
+      clinicMapEl.scrollIntoView({ behavior: "smooth", block: "center" });
+      map.setView(marker.getLatLng(), 15, { animate: true });
+      setTimeout(() => marker.openPopup(), 360);
+    });
   });
 
   const irelandBounds = [[51.25, -10.8], [55.45, -5.25]];
