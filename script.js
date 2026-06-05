@@ -197,10 +197,10 @@ if (clinicMapEl && window.L) {
   ];
 
   const map = L.map(clinicMapEl, {
-    center: [53.45, -7.7],
-    zoom: 7,
+    center: [53.25, -8.2],
+    zoom: 8,
     minZoom: 6,
-    maxBounds: [[50.9, -11.5], [55.8, -4.6]],
+    maxBounds: [[50.9, -11.2], [55.6, -5.25]],
     maxBoundsViscosity: 0.8,
     scrollWheelZoom: false,
     zoomControl: true
@@ -212,6 +212,16 @@ if (clinicMapEl && window.L) {
   }).addTo(map);
 
   const irelandBounds = [[51.25, -10.8], [55.45, -5.25]];
+  const islandView = { center: [53.25, -8.2], zoom: 8 };
+
+  function showIslandView(animate = false) {
+    if (clinicMapEl.clientWidth < 720) {
+      map.fitBounds(irelandBounds, { padding: [18, 18], animate });
+      return;
+    }
+
+    map.setView(islandView.center, islandView.zoom, { animate });
+  }
 
   const markerIcon = L.divIcon({
     className: "",
@@ -266,16 +276,16 @@ if (clinicMapEl && window.L) {
 
   mapExitButton?.addEventListener("click", () => {
     map.closePopup();
-    map.fitBounds(irelandBounds, { padding: [14, 14], animate: true });
+    showIslandView(true);
     mapExitButton.blur();
     clinicMapEl.closest(".clinic-section")?.querySelector(".clinic-grid")
       ?.scrollIntoView({ behavior: "smooth", block: "start" });
   });
 
-  map.fitBounds(irelandBounds, { padding: [14, 14] });
+  showIslandView();
   setTimeout(() => {
     map.invalidateSize();
-    map.fitBounds(irelandBounds, { padding: [14, 14] });
+    showIslandView();
   }, 200);
 }
 
