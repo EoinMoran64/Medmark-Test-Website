@@ -291,12 +291,12 @@ section { padding: clamp(56px, 7vw, 88px) clamp(20px, 5vw, 68px); }
   box-shadow: 0 18px 50px rgba(16, 26, 35, .08);
   display: block;
   margin: 0 auto 28px;
-  max-width: 900px;
-  min-height: 640px;
+  max-width: 860px;
+  min-height: 720px;
   overflow: hidden;
   position: relative;
 }
-.leaflet-map { min-height: 640px; z-index: 1; }
+.leaflet-map { min-height: 720px; z-index: 1; }
 .map-exit {
   align-items: center;
   background: var(--white);
