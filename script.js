@@ -228,10 +228,16 @@ if (clinicMapEl && window.L) {
   const bounds = [];
   const markersByName = new Map();
   const centralDublinClinics = new Set(["Medmark - Baggot Street", "Medmark - Fleming Court"]);
+  const widerClinicZooms = new Map([
+    ["Medmark - Dublin Airport", 15]
+  ]);
+  const clinicSection = clinicMapEl.closest(".clinic-section");
+  let mapHasFocusedClinic = false;
 
   function focusClinic(clinicName, shouldScroll = false) {
     const marker = markersByName.get(clinicName);
     if (!marker) return;
+    mapHasFocusedClinic = true;
 
     if (shouldScroll) {
       clinicMapEl.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -247,8 +253,14 @@ if (clinicMapEl && window.L) {
       return;
     }
 
-    map.setView(marker.getLatLng(), 16, { animate: true });
+    map.setView(marker.getLatLng(), widerClinicZooms.get(clinicName) || 16, { animate: true });
     setTimeout(() => marker.openPopup(), shouldScroll ? 520 : 320);
+  }
+
+  function resetMapToIreland(animate = true) {
+    map.closePopup();
+    showIslandView(animate);
+    mapHasFocusedClinic = false;
   }
 
   clinics.forEach(clinic => {
@@ -269,12 +281,21 @@ if (clinicMapEl && window.L) {
   });
 
   mapExitButton?.addEventListener("click", () => {
-    map.closePopup();
-    showIslandView(true);
+    resetMapToIreland(true);
     mapExitButton.blur();
-    clinicMapEl.closest(".clinic-section")?.querySelector(".clinic-grid")
+    clinicSection?.querySelector(".clinic-grid")
       ?.scrollIntoView({ behavior: "smooth", block: "start" });
   });
+
+  if (clinicSection && "IntersectionObserver" in window) {
+    const resetObserver = new IntersectionObserver(entries => {
+      const sectionIsVisible = entries.some(entry => entry.isIntersecting);
+      if (!sectionIsVisible && mapHasFocusedClinic) {
+        resetMapToIreland(false);
+      }
+    }, { threshold: 0.08 });
+    resetObserver.observe(clinicSection);
+  }
 
   showIslandView();
   setTimeout(() => {
