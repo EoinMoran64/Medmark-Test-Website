@@ -63,8 +63,8 @@ img { display: block; max-width: 100%; }
 .concept-hero {
   align-items: end;
   background:
-    linear-gradient(90deg, rgba(5, 21, 31, .82), rgba(5, 21, 31, .48) 48%, rgba(5, 21, 31, .22)),
-    url("/assets/photos/medmark-team-hero.webp") center 38% / cover no-repeat;
+    radial-gradient(circle at 78% 28%, rgba(0, 183, 223, .24), transparent 34%),
+    linear-gradient(135deg, #063241 0%, #006b7d 48%, #101a23 100%);
   color: var(--white);
   display: grid;
   min-height: 92svh;
@@ -181,7 +181,7 @@ section { padding: clamp(58px, 7vw, 96px) clamp(20px, 5vw, 68px); }
   gap: clamp(28px, 5vw, 70px);
   grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr);
 }
-.people-photo img, .photo-proof img, .team-strip img {
+.people-photo img, .photo-proof img {
   border-radius: 8px;
   box-shadow: var(--shadow);
   height: 100%;
@@ -253,17 +253,6 @@ section { padding: clamp(58px, 7vw, 96px) clamp(20px, 5vw, 68px); }
   padding-left: 20px;
 }
 .photo-proof img { aspect-ratio: 4 / 3; }
-.team-strip {
-  background: var(--paper);
-  display: grid;
-  gap: 16px;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  padding-top: 0;
-}
-.team-strip img {
-  aspect-ratio: 4 / 3;
-  box-shadow: none;
-}
 .clinic-section { background: #eaf7f8; }
 .map-panel {
   background: var(--white);
@@ -437,7 +426,7 @@ section { padding: clamp(58px, 7vw, 96px) clamp(20px, 5vw, 68px); }
   .concept-header { justify-content: space-between; }
   .concept-hero { min-height: 100svh; }
   .concept-hero-copy { padding-bottom: 150px; }
-  .concept-proof, .action-band, .people-intro, .pathway-grid, .service-grid, .photo-proof, .team-strip, .clinic-grid, .contact-routes, .concept-footer {
+  .concept-proof, .action-band, .people-intro, .pathway-grid, .service-grid, .photo-proof, .clinic-grid, .contact-routes, .concept-footer {
     grid-template-columns: 1fr;
   }
 }
