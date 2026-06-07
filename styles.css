@@ -152,10 +152,6 @@ p { color: var(--muted); line-height: 1.65; }
   line-height: 1.36;
   margin-top: 6px;
 }
-.segment { background: rgba(255,255,255,.92); border: 1px solid rgba(255,255,255,.78); border-radius: 999px; box-shadow: var(--shadow); display: inline-flex; gap: 4px; padding: 6px; position: absolute; right: clamp(20px, 5vw, 68px); top: 120px; }
-.segment a { border-radius: 999px; color: var(--muted); font-weight: 850; padding: 10px 18px; }
-.segment a.is-active { background: var(--teal); color: var(--white); }
-
 .hurry-button {
   align-items: center;
   background: rgb(242, 245, 249);
@@ -624,7 +620,6 @@ textarea { min-height: 110px; padding-top: 12px; resize: vertical; }
   .hero-panel div + div { border-left: 0; border-top: 1px solid var(--line); }
   .trust-strip { align-items: flex-start; display: grid; }
   .trust-strip div { justify-content: flex-start; }
-  .segment { display: none; }
 }
 @media (max-width: 640px) {
   .site-header { height: 98px; padding-top: 10px; align-items: start; }
