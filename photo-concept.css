@@ -35,7 +35,7 @@ img { display: block; max-width: 100%; }
   top: 0;
   z-index: 20;
 }
-.concept-brand img { height: 72px; width: auto; }
+.concept-brand img { height: 88px; width: auto; }
 .concept-nav {
   align-items: center;
   display: flex;
@@ -443,7 +443,7 @@ section { padding: clamp(58px, 7vw, 96px) clamp(20px, 5vw, 68px); }
   }
 }
 @media (max-width: 640px) {
-  .concept-brand img { height: 58px; }
+  .concept-brand img { height: 68px; }
   .concept-cta { min-height: 44px; padding: 0 16px; }
   .concept-hero { padding-top: 118px; }
   .concept-hero-copy { padding-bottom: 210px; }
