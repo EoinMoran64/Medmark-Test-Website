@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Medmark | Photo-Led Website Concept</title>
+    <meta name="description" content="An alternative Medmark website concept using Medmark team photography, clear service routes and clinic information." />
+    <link rel="icon" href="https://demo.medmark.ie/_next/image?url=%2Ficon.png&w=96&q=75" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="/photo-concept.css" />
+  </head>
+  <body class="photo-concept">
+    <header class="concept-header">
+      <a class="concept-brand" href="/photo-concept.html" aria-label="Medmark photo concept home">
+        <img src="https://demo.medmark.ie/_next/image?url=%2Fmedmark-white-logo.png&w=384&q=75" alt="Medmark Occupational Healthcare" />
+      </a>
+      <nav class="concept-nav" aria-label="Concept navigation">
+        <a href="#services">Services</a>
+        <a href="#people">People</a>
+        <a href="#clinics">Clinics</a>
+        <a href="/forms.html">Forms</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="concept-cta" href="/">Current site</a>
+    </header>
+
+    <main>
+      <section class="concept-hero" id="top">
+        <div class="concept-hero-copy">
+          <p class="eyebrow">Occupational Healthcare</p>
+          <h1>Specialist occupational health, delivered by people you can recognise.</h1>
+          <p>
+            A more photography-led Medmark concept that keeps the existing clinical clarity, national clinic network and practical routes for employers, employees and education services.
+          </p>
+          <div class="hero-buttons">
+            <a class="button button-primary" href="#services">Explore services</a>
+            <a class="button button-secondary" href="#clinics">Find a clinic</a>
+          </div>
+        </div>
+        <div class="concept-proof" aria-label="Key Medmark strengths">
+          <span>Nationwide clinic network</span>
+          <span>Occupational health specialists</span>
+          <span>Clear referral pathways</span>
+        </div>
+      </section>
+
+      <section class="action-band" aria-label="Common Medmark actions">
+        <a href="/forms.html">
+          <span>Forms</span>
+          <strong>Start with the right form</strong>
+          <small>Employer, employee and education referral routes in one place.</small>
+        </a>
+        <a href="#clinics">
+          <span>Clinics</span>
+          <strong>Choose a clinic</strong>
+          <small>View Medmark locations across Ireland and Blackwell in Belfast.</small>
+        </a>
+        <a href="#contact">
+          <span>Contact</span>
+          <strong>Find the right contact route</strong>
+          <small>Clinic details, forms, general enquiries and wellness links.</small>
+        </a>
+      </section>
+
+      <section class="people-intro" id="people">
+        <div class="section-heading align-left">
+          <p class="eyebrow">People and practice</p>
+          <h2>More human, without losing clinical confidence.</h2>
+          <p>
+            This version brings Medmark staff photography into the core experience. The aim is to make the organisation feel more accessible while keeping the service pathways direct and work-focused.
+          </p>
+        </div>
+        <div class="people-photo">
+          <img src="/assets/photos/medmark-clinical-team.webp" alt="Medmark clinical team" />
+        </div>
+      </section>
+
+      <section class="pathways-section">
+        <div class="section-heading">
+          <p class="eyebrow">Start here</p>
+          <h2>Choose the route that matches your need.</h2>
+        </div>
+        <div class="pathway-grid">
+          <article>
+            <h3>Employers and HR teams</h3>
+            <p>Arrange occupational health referrals, pre-employment assessments, absence advice or case management support.</p>
+            <a href="#contact">Discuss a referral</a>
+          </article>
+          <article>
+            <h3>Employees attending assessment</h3>
+            <p>Find forms, clinic details and practical appointment information before attending a Medmark assessment.</p>
+            <a href="/forms.html">Prepare for appointment</a>
+          </article>
+          <article>
+            <h3>Schools and education services</h3>
+            <p>Access dedicated Medmark4TeacherSNA support for education-sector occupational health pathways.</p>
+            <a href="/forms.html">View education forms</a>
+          </article>
+        </div>
+      </section>
+
+      <section id="services" class="services-section">
+        <div class="section-heading">
+          <p class="eyebrow">Our Services</p>
+          <h2>Occupational health services for your organisation.</h2>
+          <p>Click a service to view more detail.</p>
+        </div>
+        <div class="service-grid">
+          <button class="service-card" type="button" data-service="preemployment"><small>Pre-Employment Medicals</small><h3>Clearer hiring decisions</h3><p>Efficient assessments to confirm fitness for role and identify relevant risks.</p><strong>View details</strong></button>
+          <button class="service-card" type="button" data-service="occupational"><small>Occupational Health</small><h3>Practical guidance on health and work</h3><p>Specialist advice to support attendance, capability and safe return to work.</p><strong>View details</strong></button>
+          <button class="service-card" type="button" data-service="nationwide"><small>Nationwide Medical Services</small><h3>Clinical support across Ireland</h3><p>Clinic locations and secure workflows for distributed organisations.</p><strong>View details</strong></button>
+          <button class="service-card" type="button" data-service="nurse"><small>Nurse Case Management</small><h3>Supporting recovery and return to work</h3><p>Nurse-led case support for ongoing absence and rehabilitation planning.</p><strong>View details</strong></button>
+          <button class="service-card" type="button" data-service="wellness"><small>Employee Wellness</small><h3>Healthier, more engaged teams</h3><p>Wellbeing support that complements occupational health services.</p><strong>View details</strong></button>
+          <button class="service-card" type="button" data-service="education"><small>Medmark4TeacherSNA</small><h3>Specialist support for school staff</h3><p>Dedicated occupational health support for education settings.</p><strong>View details</strong></button>
+        </div>
+      </section>
+
+      <section class="photo-proof">
+        <div>
+          <img src="/assets/photos/medmark-practitioner-logo.webp" alt="Medmark practitioner" />
+        </div>
+        <div>
+          <p class="eyebrow">Clinical confidence</p>
+          <h2>Experienced clinicians, clearer online journeys.</h2>
+          <p>
+            The strongest parts of the completed site are retained: clear pathways, fast access to forms, clinic mapping and simple contact routes. The difference here is a more visible Medmark team presence.
+          </p>
+          <ul>
+            <li>Photography used to support trust, not as decoration.</li>
+            <li>Service cards remain direct and action-focused.</li>
+            <li>Clinic map remains central for practical appointment planning.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="team-strip" aria-label="Medmark team photography">
+        <img src="/assets/photos/medmark-practitioner-grey.webp" alt="Medmark team member" />
+        <img src="/assets/photos/medmark-practitioner-smile.webp" alt="Medmark team member" />
+        <img src="/assets/photos/medmark-consultant.webp" alt="Medmark team member" />
+      </section>
+
+      <section class="clinic-section" id="clinics">
+        <div class="section-heading">
+          <p class="eyebrow">Our Clinics</p>
+          <h2>Clinics across Ireland.</h2>
+          <p>Use the map and location cards for addresses and orientation. Exact directions and access information are provided with each appointment.</p>
+        </div>
+        <div class="map-panel" aria-label="Map of Medmark clinics across Ireland">
+          <div id="clinic-map" class="leaflet-map" aria-label="Interactive map of Medmark clinics"></div>
+          <button class="map-exit" type="button" data-map-exit>Exit map</button>
+        </div>
+        <div class="clinic-grid">
+          <article class="clinic-card"><h3>Medmark - Baggot Street</h3><strong>Dublin</strong><p>69 Lower Baggot Street, Baggot Street Bridge, Dublin 2, D02 HW52</p><button class="map-focus" type="button" data-clinic="Medmark - Baggot Street">Show on map</button></article>
+          <article class="clinic-card"><h3>Medmark - Fleming Court</h3><strong>Dublin</strong><p>Ground Floor, Fleming Court, Fleming's Place, Dublin 4, D04 N4X9</p><button class="map-focus" type="button" data-clinic="Medmark - Fleming Court">Show on map</button></article>
+          <article class="clinic-card"><h3>Medmark - Dublin Airport</h3><strong>Dublin</strong><p>Skybridge House, Corballis Road North, Dublin Airport, Swords, Co. Dublin, K67 P6K2</p><button class="map-focus" type="button" data-clinic="Medmark - Dublin Airport">Show on map</button></article>
+          <article class="clinic-card"><h3>Medmark - Sligo</h3><strong>Sligo</strong><p>4 The Mall, Sligo, F91 HT7C</p><button class="map-focus" type="button" data-clinic="Medmark - Sligo">Show on map</button></article>
+          <article class="clinic-card"><h3>Medmark - Limerick</h3><strong>Limerick</strong><p>Stanford Clinic, 6 Steamboat Quay, Limerick, V94 Y7YH</p><button class="map-focus" type="button" data-clinic="Medmark - Limerick">Show on map</button></article>
+          <article class="clinic-card"><h3>Medmark - Galway</h3><strong>Galway</strong><p>Unit 7A, Second Floor, Briarhill Business Park, Ballybrit, Galway, H91 621D</p><button class="map-focus" type="button" data-clinic="Medmark - Galway">Show on map</button></article>
+          <article class="clinic-card"><h3>Medmark - Waterford</h3><strong>Waterford</strong><p>Suite no. 8, Whitfield Clinic, Butlerstown North, Cork Road, Co. Waterford, X91 DH9W</p><button class="map-focus" type="button" data-clinic="Medmark - Waterford">Show on map</button></article>
+          <article class="clinic-card"><h3>Medmark - Cork</h3><strong>Cork</strong><p>8 Penrose Wharf, Cork, T23 DC90</p><button class="map-focus" type="button" data-clinic="Medmark - Cork">Show on map</button></article>
+          <article class="clinic-card"><h3>Medmark - Belfast (Blackwell Associates)</h3><strong>Belfast</strong><p>Strand House, 102 Holywood Road, Belfast, BT4 1NU</p><button class="map-focus" type="button" data-clinic="Medmark - Belfast (Blackwell Associates)">Show on map</button></article>
+        </div>
+      </section>
+
+      <section id="contact" class="contact-section">
+        <div class="section-heading align-left">
+          <p class="eyebrow">Contact Us</p>
+          <h2>Choose the right way to reach Medmark.</h2>
+          <p>Please do not send medical details or sensitive personal information through website chat or general email.</p>
+        </div>
+        <div class="contact-routes" aria-label="Contact routes">
+          <article><span>Clinics and directions</span><h3>Find your nearest clinic</h3><p>Use the clinic map and location cards for addresses and orientation.</p><a href="#clinics">View clinic details</a></article>
+          <article><span>Forms and referrals</span><h3>Start with the right form</h3><p>Use the forms page for employer, employee and education-sector routes.</p><a href="/forms.html">Go to forms</a></article>
+          <article><span>General enquiries</span><h3>Contact the Medmark team</h3><p><strong>01 676 1493</strong><br /><a href="mailto:dublin@medmark.ie">dublin@medmark.ie</a></p></article>
+          <article><span>Wellness</span><h3>Workplace wellbeing services</h3><p>Visit the dedicated Medmark Wellness site.</p><a href="https://medmark-wellness.vercel.app/">Visit Medmark Wellness</a></article>
+        </div>
+      </section>
+    </main>
+
+    <button class="chat-button" type="button" aria-label="Open chat with Medmark" aria-expanded="false">
+      <span class="chat-button-icon" aria-hidden="true"><img src="https://demo.medmark.ie/_next/image?url=%2Ficon.png&w=96&q=75" alt="" /></span>
+      <span>Chat with us</span>
+    </button>
+    <section class="chat-panel" aria-label="Medmark chat" hidden>
+      <div class="chat-panel-header">
+        <strong>Medmark</strong>
+        <button type="button" aria-label="Close chat">&times;</button>
+      </div>
+      <div class="chat-panel-body">
+        <p>Hello. How can we help today?</p>
+        <a href="/forms.html">Find a form</a>
+        <a href="#contact">Contact Medmark</a>
+        <a href="mailto:dublin@medmark.ie">Email Medmark</a>
+      </div>
+      <form class="chat-entry">
+        <label for="chat-message">Your message</label>
+        <div>
+          <input id="chat-message" type="text" placeholder="Type your message..." />
+          <button type="submit" aria-label="Send message">Send</button>
+        </div>
+      </form>
+    </section>
+
+    <div class="modal" id="service-modal" hidden>
+      <div class="modal-backdrop" data-close></div>
+      <section class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <button class="modal-close" type="button" aria-label="Close service details" data-close>&times;</button>
+        <p class="eyebrow">Service</p>
+        <h2 id="modal-title"></h2>
+        <p id="modal-summary"></p>
+        <div class="modal-body" id="modal-body"></div>
+        <a class="button button-primary" href="#contact" data-close>Talk to our team</a>
+      </section>
+    </div>
+
+    <footer class="concept-footer">
+      <img src="https://demo.medmark.ie/_next/image?url=%2Fmedmark-logo.png&w=384&q=75" alt="Medmark Occupational Healthcare" />
+      <nav aria-label="Footer links">
+        <a href="/">Current site</a>
+        <a href="/forms.html">Forms</a>
+        <a href="/careers.html">Careers</a>
+        <a href="/policy.html">Privacy Policy</a>
+      </nav>
+      <p>&copy; 2026 Medmark Occupational Healthcare. Photo-led concept for comparison.</p>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="/script.js"></script>
+  </body>
+</html>
