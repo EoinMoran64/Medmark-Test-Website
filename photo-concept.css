@@ -292,6 +292,18 @@ section { padding: clamp(58px, 7vw, 96px) clamp(20px, 5vw, 68px); }
   width: 42px;
 }
 .clinic-marker img { height: 27px; width: 27px; }
+.clinic-contact {
+  display: grid;
+  gap: 5px;
+  line-height: 1.35;
+  margin: 6px 0 0;
+}
+.clinic-contact a {
+  align-self: start;
+  color: var(--teal-dark);
+  font-weight: 850;
+  overflow-wrap: anywhere;
+}
 .map-focus {
   background: transparent;
   border: 0;

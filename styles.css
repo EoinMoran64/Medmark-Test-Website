@@ -469,6 +469,18 @@ section { padding: clamp(56px, 7vw, 88px) clamp(20px, 5vw, 68px); }
 .clinic-card { display: grid; min-height: 196px; padding: 22px; }
 .clinic-card strong { color: var(--teal-dark); display: block; margin-bottom: 8px; }
 .clinic-card a { align-self: end; color: var(--teal-dark); font-weight: 850; }
+.clinic-contact {
+  display: grid;
+  gap: 5px;
+  line-height: 1.35;
+  margin: 6px 0 0;
+}
+.clinic-contact a {
+  align-self: start;
+  color: var(--teal-dark);
+  font-weight: 850;
+  overflow-wrap: anywhere;
+}
 .map-focus {
   align-self: end;
   background: var(--teal);
