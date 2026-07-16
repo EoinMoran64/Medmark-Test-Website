@@ -15,9 +15,17 @@
     document.querySelector(".chat-button")?.remove();
     document.querySelector(".chat-panel")?.remove();
 
-    const buttonContainer = document.createElement("div");
-    buttonContainer.id = "__8x8-chat-button-container-script_8908431576a0b159db9c2f3.80372082";
-    document.body.appendChild(buttonContainer);
+const buttonContainer = document.createElement("div");
+buttonContainer.id = "__8x8-chat-button-container-script_8908431576a0b159db9c2f3.80372082";
+
+Object.assign(buttonContainer.style, {
+  position: "fixed",
+  right: "24px",
+  bottom: "24px",
+  zIndex: "10000"
+});
+
+document.body.appendChild(buttonContainer);
 
     (function(c, f, ef) {
       const typeofC = Object.prototype.toString.call(c);
