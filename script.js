@@ -121,6 +121,11 @@
 
   const getChatFrame = () => document.getElementById(CHAT_SCRIPT_UUID);
 
+  const isChatOpen = () => {
+    const frame = getChatFrame();
+    return !!frame && getComputedStyle(frame).display !== "none";
+  };
+
   const setChatOpen = isOpen => {
     const frame = getChatFrame();
     const button = document.getElementById(CHAT_BUTTON_CONTAINER_ID)?.querySelector("button");
@@ -130,11 +135,7 @@
     button?.setAttribute("aria-expanded", String(isOpen));
   };
 
-  const toggleChat = () => {
-    const frame = getChatFrame();
-    if (!frame) return;
-    setChatOpen(getComputedStyle(frame).display === "none");
-  };
+  const toggleChat = () => setChatOpen(!isChatOpen());
 
   const createFallbackChatButton = () => {
     const container = document.getElementById(CHAT_BUTTON_CONTAINER_ID);
@@ -142,9 +143,14 @@
 
     const button = document.createElement("button");
     button.type = "button";
+    button.dataset.medmarkFallbackChatButton = "true";
     button.setAttribute("aria-label", "Chat to Medmark");
     button.setAttribute("aria-expanded", "false");
-    button.addEventListener("click", toggleChat);
+    button.addEventListener("click", event => {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      toggleChat();
+    }, true);
     container.appendChild(button);
   };
 
@@ -155,12 +161,18 @@
     button.setAttribute("aria-label", "Chat to Medmark");
     if (!button.dataset.medmarkChatBound) {
       button.dataset.medmarkChatBound = "true";
-      button.addEventListener("click", () => {
-        setTimeout(() => {
-          const frame = getChatFrame();
-          if (frame) button.setAttribute("aria-expanded", String(getComputedStyle(frame).display !== "none"));
-        }, 100);
-      });
+      button.addEventListener("click", event => {
+        if (button.dataset.medmarkFallbackChatButton === "true") return;
+
+        if (isChatOpen()) {
+          event.preventDefault();
+          event.stopImmediatePropagation();
+          setChatOpen(false);
+          return;
+        }
+
+        setTimeout(() => button.setAttribute("aria-expanded", String(isChatOpen())), 100);
+      }, true);
     }
   };
 
