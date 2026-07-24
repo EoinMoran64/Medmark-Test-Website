@@ -135,6 +135,17 @@
     button?.setAttribute("aria-expanded", String(isOpen));
   };
 
+  const closeChatWhenReady = () => {
+    const attemptClose = attemptsLeft => {
+      if (getChatFrame()) {
+        setChatOpen(false);
+        return;
+      }
+      if (attemptsLeft > 0) setTimeout(() => attemptClose(attemptsLeft - 1), 250);
+    };
+    attemptClose(12);
+  };
+
   const toggleChat = () => setChatOpen(!isChatOpen());
 
   const createFallbackChatButton = () => {
@@ -238,6 +249,7 @@
         function handleInitEvent(e) {
           e.detail.init(config, cb);
           labelChatButton();
+          closeChatWhenReady();
           setTimeout(createFallbackChatButton, 500);
           se.removeEventListener("init", handleInitEvent);
         }
@@ -245,6 +257,7 @@
         function handleErrorEvent(e) {
           if (ef) ef(e);
           createFallbackChatButton();
+          closeChatWhenReady();
           se.removeEventListener("customerror", handleErrorEvent);
         }
 
@@ -255,7 +268,10 @@
       }
     })();
 
-    setTimeout(createFallbackChatButton, 2500);
+    setTimeout(() => {
+      createFallbackChatButton();
+      closeChatWhenReady();
+    }, 2500);
   };
 
   loadExistingSiteScript().finally(load8x8Chat);
